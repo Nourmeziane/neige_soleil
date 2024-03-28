@@ -4,9 +4,15 @@ class ModeleReservation {
     private $unPDO;
     public function __construct(){
         try{
+<<<<<<< HEAD
             $url="mysql:host=localhost;dbname=neige_et_soleil";
             $user = "root";
             $mdp = "";
+=======
+            $url="mysql:host=localhost;port=8889;dbname=neige_et_soleil";
+            $user = "root";
+            $mdp = "";
+>>>>>>> 7ea7b9ef51947bf4cf14ba0a5fb19deb463c2135
             $this->unPDO = new PDO($url, $user, $mdp);
             }
             catch (PDOException $exp){
