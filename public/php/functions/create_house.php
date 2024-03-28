@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $CodeSta = $_POST['CodeSta'];
     
 
-    $modele = new Modele();
+    $modele = new ModeleHouse();
     $modele->insertHouse(array(
         "typeH" => $TypeH,
         "nom" => $Nom,

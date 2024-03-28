@@ -7,7 +7,7 @@ if ($_SESSION['role'] != 'admin') {
 }
 
 // Inclure le fichier de modèle utilisateur
-require_once '/Applications/MAMP/htdocs/neige_soleil/public/php/modele/modele_user.php';
+require_once '\wamp64\www\neige_soleil/public/php/modele/modele_user.php';
 
 // Fonction pour récupérer tous les utilisateurs
 function getAllUsers($modele) {

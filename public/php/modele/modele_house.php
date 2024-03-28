@@ -1,12 +1,12 @@
 <?php
 
-class Modele {
+class ModeleHouse {
     private $unPDO;
     public function __construct(){
         try{
-            $url="mysql:host=localhost;port=8889;dbname=neige_et_soleil";
+            $url="mysql:host=localhost;dbname=neige_et_soleil";
             $user = "root";
-            $mdp = "root";
+            $mdp = "";
             $this->unPDO = new PDO($url, $user, $mdp);
             }
             catch (PDOException $exp){

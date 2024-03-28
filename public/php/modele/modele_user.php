@@ -9,9 +9,9 @@ class Modele {
     
     private function connect() {
         try {
-            $url="mysql:host=localhost;port=8889;dbname=neige_et_soleil";
+            $url="mysql:host=localhost;dbname=neige_et_soleil";
             $user = "root";
-            $mdp = "root";
+            $mdp = "";
             $this->unPDO = new PDO($url, $user, $mdp);
         } catch (PDOException $exp){
             echo "Erreur connexion BDD :".$exp->getMessage();

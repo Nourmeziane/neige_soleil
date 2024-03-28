@@ -23,7 +23,7 @@
                             <a class="dropdown-item" href="#">Dashbord</a>
                             <a class="dropdown-item" href="./admin.php">Gerer utilisateur</a>
                         <?php elseif(isset($_SESSION['role']) && $_SESSION['role'] == "user"): ?>
-                            <a class="dropdown-item" href="#">Gerer réservation</a>
+                            <a class="dropdown-item" href="./gerer_resa.php">Gerer réservation</a>
                             <a class="dropdown-item" href="#">Historique réservation</a>
                         <?php elseif(isset($_SESSION['role']) && $_SESSION['role'] == "proprio"): ?>
                             <a class="dropdown-item" href="./gestion_house.php">Gerer Logement</a>

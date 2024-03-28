@@ -24,18 +24,6 @@ CREATE TABLE Stations (
   Ville VARCHAR(255)
 );
 
-CREATE TABLE Reservations (
-  IDR INT PRIMARY KEY AUTO_INCREMENT,
-  DateR DATE,
-  DateD DATE,
-  DateF DATE,
-  NbPers INT,
-  Etat VARCHAR(255),
-  Cautions DECIMAL(10, 2), 
-  IdClient INT,
-  FOREIGN KEY (IdClient) REFERENCES User(id)
-);
-
 CREATE TABLE Habitations (
   id INT PRIMARY KEY AUTO_INCREMENT,
   TypeH VARCHAR(255),
@@ -47,12 +35,25 @@ CREATE TABLE Habitations (
   Ville VARCHAR(255),
   PrixHabJ DECIMAL(10, 2),
   EtatHab VARCHAR(255),
+  Description VARCHAR(255),
   IdProprio INT NOT NULL,
   CodeSta INT  NOT NULL, 
   FOREIGN KEY (IdProprio) REFERENCES User(id), 
   FOREIGN KEY (CodeSta) REFERENCES Stations(CodeSta)
 );
 
+CREATE TABLE Reservations (
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  DateR DATE,
+  DateD DATE,
+  DateF DATE,
+  NbPers INT,
+  Etat VARCHAR(255),
+  IdClient INT,
+  IdHouse INT,
+  FOREIGN KEY (IdClient) REFERENCES User(id),
+  FOREIGN KEY (IdHouse) REFERENCES Habitations(id) 
+);
 
 CREATE TABLE Contrat (
   NumC INT PRIMARY KEY AUTO_INCREMENT,
@@ -61,7 +62,7 @@ CREATE TABLE Contrat (
   EtatCon VARCHAR(255),
   Description TEXT,
   IDR INT NOT NULL, 
-  FOREIGN KEY (IDR) REFERENCES Reservations(IDR)
+  FOREIGN KEY (IDR) REFERENCES Reservations(id)
 );
  
 
@@ -73,7 +74,7 @@ INSERT INTO Stations VALUES(null, "Station Alpes", "rue de Lyon", "69800", "Gren
 INSERT INTO Stations VALUES(null, "Station Massif", "rue de Limoges", "87100", "Brive"); 
 
 
-INSERT INTO `Habitations` (`id`, `TypeH`, `Nom`, `Superficie`, `Capacite`, `Adresse`, `CP`, `Ville`, `PrixHabJ`, `EtatHab`,`IdUser`, `CodeSta`) VALUES
+INSERT INTO `Habitations` (`id`, `TypeH`, `Nom`, `Superficie`, `Capacite`, `Adresse`, `CP`, `Ville`, `PrixHabJ`, `EtatHab`,`IdProprio`, `CodeSta`) VALUES
 (1, 'chalet', 'Villa justine', '200.00', 12, 'huijkdr ', '91200', 'Paris', '200.00', 'Luxe',8, 1),
 (2, 'maison', 'chalet nover', '100.00', 8, '84 rurbhb hds', '75008', 'MARSEILLE', '800.00', 'null',8,1),
 (3, 'appartement', 'app test 3', '200.00', 10, 'je sais pas ', '09786', 'londres', '1000.00', 'passable',8,2),
@@ -87,3 +88,7 @@ INSERT INTO `Habitations` (`id`, `TypeH`, `Nom`, `Superficie`, `Capacite`, `Adre
 (11, 'maison', 'Fabien CHARLES', '111.00', 11, '84 rue du docteur vaillant', '91700', 'Saint-Genevieve-des-Bois', NULL, NULL,8,1),
 (12, 'maison', 'Fabien CHARLES', '111.00', 11, '84 rue du docteur vaillant', '91700', 'Saint-Genevieve-des-Bois', '11.00', NULL,8,1),
 (13, 'maison', 'Fabien CHARLES', '111.00', 11, '84 rue du docteur vaillant', '91700', 'Saint-Genevieve-des-Bois', '11.00', NULL,8,1);
+
+INSERT INTO Reservations VALUES(1, "2024-01-23", "2024-04-10", "2024-04-20", 5, "attente", 6, 1); 
+INSERT INTO Reservations VALUES(2, "2024-01-17", "2024-04-01", "2024-04-09", 5, "refus", 6, 1); 
+INSERT INTO Reservations VALUES(3, "2024-01-17", "2024-03-15", "2024-03-29", 5, "valide", 6, 1);

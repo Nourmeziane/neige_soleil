@@ -9,7 +9,7 @@ function getModeleHouseUser($modele) {
 }
 
 // Connexion à la base de données
-$modele = new Modele();
+$modele = new ModeleHouse();
 
 // Suppression d'une House
 if (isset($_GET['id']) && isset($_GET['action']) && $_GET['action'] == "delete") {

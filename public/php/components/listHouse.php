@@ -5,7 +5,7 @@ if (isset($_SESSION['email'])) {
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $localisation = $_POST['localisation']; 
     }
-    $modele = new Modele();
+    $modele = new ModeleHouse();
     $houses = $modele->getListOfHouse($localisation);
     ?>
     <div class="row align-items-center justify-content-center px-10 mb-5">
@@ -17,11 +17,11 @@ if (isset($_SESSION['email'])) {
             <div class="col-md-4 mb-4">
               <div class="card overflow-hidden shadow">
                 <img class="card-img-top"
-                <?php if($house['TypeH'] == "Maison"): ?>
+                <?php if($house['TypeH'] == "maison"): ?>
                   src="assets/img/logements/Acceuil1.jpg"
-                <?php elseif($house['TypeH'] == "Chalet"): ?>
+                <?php elseif($house['TypeH'] == "chalet"): ?>
                   src="assets/img/logements/acceuil2.jpg.jpg"
-                <?php elseif($house['TypeH'] == "Appartement"): ?>
+                <?php elseif($house['TypeH'] == "appartement"): ?>
                   src="assets/img/logements/acceuil3.jpg.jpg"
                 <?php endif; ?> 
                   alt="Image de logement" />

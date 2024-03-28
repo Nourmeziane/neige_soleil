@@ -6,7 +6,7 @@
 <?php
 if (isset($_GET['id'])) {
     require_once './php/modele/modele_house.php';
-    $modele = new Modele();
+    $modele = new ModeleHouse();
     $house = $modele->getHouse($_GET['id']);
     if ($house == null) {
         header('Location: ./index.php');
@@ -26,7 +26,7 @@ if (isset($_GET['id'])) {
             </div>
             <!-- Détails du bien -->
             <div class="col-md-6">
-                <img src=<?php echo $house[""]; ?>" class="img-fluid" alt="Image du bien">
+                <img src=<?php echo $house[""]; ?>class="img-fluid" alt="Image du bien">
             </div>
             <div class="col-md-6">
                 <h3>Description</h3>

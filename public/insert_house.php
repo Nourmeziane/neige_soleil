@@ -1,6 +1,6 @@
 <?php include './php/components/header.php'; 
 require_once '/Applications/MAMP/htdocs/neige_soleil/public/php/modele/modele_house.php';
-$modele = new Modele();
+$modele = new ModeleHouse();
 $lesStations = $modele->GetStations ();
 ?>
 
